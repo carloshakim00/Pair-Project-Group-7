@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasOne(models.UserProfile, {foreignKey: "UserId"});
       User.hasMany(models.Transaction, {foreignKey: "UserId"});
+      User.belongsToMany(models.Product, {through: models.Transaction});
     }
   }
   User.init({
