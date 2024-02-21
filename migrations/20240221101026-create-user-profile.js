@@ -10,16 +10,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       address: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       phone: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       UserId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        unique: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Users"
+          },
+          key: "id"
+        },
+        onUpdate: "cascade",
+        onDelete: "cascade"
       },
       createdAt: {
         allowNull: false,
