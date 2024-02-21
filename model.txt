@@ -7,4 +7,4 @@ npx sequelize-cli migration:create --name add-imageurl-to-product
 npx sequelize-cli seed:create --name seed-user
 npx sequelize-cli seed:create --name seed-userprofile
 npx sequelize-cli seed:create --name seed-product
-npx sequelize-cli seed:create --name seed-userproduct
+npx sequelize-cli seed:create --name seed-transaction
