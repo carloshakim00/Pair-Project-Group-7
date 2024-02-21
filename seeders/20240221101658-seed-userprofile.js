@@ -12,6 +12,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    let data = require("../userprofiles.json")
+    .map((perUserProfile)=>{
+     perUserProfile.createdAt = perUserProfile.updatedAt = new Date();
+     return perUserProfile;
+    })
+    await queryInterface.bulkInsert("UsersProfiles", data,{})
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +27,9 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete("UsersProfiles", null, {
+      truncate: true,
+      restartIdentity: true
+    })
   }
 };
