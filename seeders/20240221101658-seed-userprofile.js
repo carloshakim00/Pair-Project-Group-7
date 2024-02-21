@@ -29,7 +29,8 @@ module.exports = {
      */
     await queryInterface.bulkDelete("UsersProfiles", null, {
       truncate: true,
-      restartIdentity: true
+      restartIdentity: true,
+      cascade: true
     })
   }
 };

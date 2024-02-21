@@ -13,9 +13,9 @@ module.exports = {
      * }], {});
     */
     let data = require("../products.json")
-    .map((perProduc)=>{
-     perProduc.createdAt = perProduc.updatedAt = new Date();
-     return perProduc;
+    .map((perProduct)=>{
+     perProduct.createdAt = perProduct.updatedAt = new Date();
+     return perProduct;
     })
     await queryInterface.bulkInsert("Products", data,{})
   },
@@ -29,7 +29,8 @@ module.exports = {
      */
     await queryInterface.bulkDelete("Products", null, {
       truncate: true,
-      restartIdentity: true
+      restartIdentity: true,
+      cascade: true
     })
   }
 };
