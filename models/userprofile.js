@@ -11,14 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      UserProfile.belongsTo(models.User, {foreignKey: "UserId"});
     }
   }
   UserProfile.init({
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
-  }, {
+    UserId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: {
+          tableName: "Users"
+        },
+        key: "id"
+      },
+      onUpdate: "cascade",
+      onDelete: "cascade"
+  }}, {
     sequelize,
     modelName: 'UserProfile',
   });
