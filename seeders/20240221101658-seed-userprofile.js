@@ -17,7 +17,7 @@ module.exports = {
      perUserProfile.createdAt = perUserProfile.updatedAt = new Date();
      return perUserProfile;
     })
-    await queryInterface.bulkInsert("UsersProfiles", data,{})
+    await queryInterface.bulkInsert("UserProfiles", data,{})
   },
 
   async down (queryInterface, Sequelize) {
@@ -27,7 +27,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("UsersProfiles", null, {
+    await queryInterface.bulkDelete("UserProfiles", null, {
       truncate: true,
       restartIdentity: true,
       cascade: true
