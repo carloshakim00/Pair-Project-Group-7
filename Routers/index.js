@@ -10,34 +10,26 @@ router.get("/", (req, res) => {
 router.get("/home", LoginController.login);
 router.post("/home", LoginController.addUser);
 
-
-
-
 router.get("/logout", Controller.getLogout);
 
 router.get("/buyerHomePage", Controller.showBuyer);
-router.get("/buyerHomePage/:id", Controller.buyMedicine);
 
+router.get("/buyerHomePage/:id", Controller.buyMedicine);
 
 router.get("/sellerHomePage", Controller.showSeller);
 
 // router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);
 
-// router.get("/sellerHomePage/buyerProfile", Controller.buyerProfile);
+// router.get("/buyerHomePage/buyerProfile", Controller.buyerProfile);
 
+// router.get("/buyerHomePage/cart", Controller.productDetail);
 
 router.get("/home/addProduct", Controller.showAddForm);
 router.post("/home/addProduct", Controller.postAddForm);
+
 router.get("/sellerHomePage/edit/:id", Controller.showEditForm);
 router.post("/sellerHomePage/edit/:id", Controller.postEditForm);
 
-// router.get("/home/product/restockProduct/:productId", Controller.editProduct);
-// router.post("/home/product/restockProduct/:productId", Controller.updateProduct);
-
 router.get("/sellerHomePage/delete/:productId", LoginController.deleteProduct);
-
-// router.get("/home/product/buyProduct/:productId", Controller.buyProduct);
-
-// router.get("/home/product/showProduct/:productId", Controller.showBuyProduct);
 
 module.exports = router;
