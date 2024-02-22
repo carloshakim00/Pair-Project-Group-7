@@ -27,6 +27,7 @@ class Controller{
         try {
             let { search } = req.query
             let option = {
+                order:[["price", "DESC"]]
             };
             if (search){
                 option.where = {
@@ -85,7 +86,15 @@ class Controller{
         }
      }
 
-     static async 
+     static async buyMedicine(req,res){
+        try {
+            let {id} = req.params;
+            await Product.increment({stock: -1}, {where:{id}})
+            res.redirect("/buyerHomePage")
+        } catch (error) {
+            res.send(error);
+        }
+     }
 }
 
 module.exports = Controller
