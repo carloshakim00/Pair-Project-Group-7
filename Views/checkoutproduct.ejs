@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+        <h2>Checkout Product <%= data.name %></h2><br>
+        <div>
+            <img src="<%= data.imageUrl %>" class="card-img-top" alt="<%= data.name %> image" style="width:250px">
+        </div>
+        <div>
+            <p>Product Name: <%= data.name %></p>
+        </div>
+        <div>
+            <p>Price: <%= formatter(data.price) %></p>
+        </div>
+        <a href="/buyerHomePage"><button type="button" class="btn btn-primary">Back</button></a>  <a href="/buyerHomePage/checkout/<%= data.id %>"><button type="button" class="btn btn-primary">Checkout</button></a>
+</body>
+
+</html>
