@@ -27,13 +27,16 @@ class Controller{
         try {
             let { search } = req.query
             let option = {
+               where: {
+                  stock: {
+                     [Op.gt]: 0
+                  }
+               },
                 order:[["price", "DESC"]]
             };
             if (search){
-                option.where = {
-                    name:{
-                        [Op.iLike]: `%${search}%`,
-                    },
+                option.where.name = {
+                    [Op.iLike]: `%${search}%`, 
                 };
             }
          const products = await Product.findAll(option);

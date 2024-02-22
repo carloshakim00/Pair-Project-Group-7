@@ -21,9 +21,9 @@ router.get("/buyerHomePage/:id", Controller.buyMedicine);
 
 router.get("/sellerHomePage", Controller.showSeller);
 
-router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);
+// router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);
 
-router.get("/sellerHomePage/buyerProfile", Controller.buyerProfile);
+// router.get("/sellerHomePage/buyerProfile", Controller.buyerProfile);
 
 
 router.get("/home/addProduct", Controller.showAddForm);
