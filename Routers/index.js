@@ -6,18 +6,20 @@ router.get("/", (req, res) => {
     res.redirect("/home");
 })
 
-router.get("/home", Controller.showProduct);
+router.get("/home", Controller.login);
 
-router.get("/home/addProduct", Controller.addProduct);
-router.post("/home/addProduct", Controller.saveProduct);
+router.get("/home/product", Controller.showProduct);
 
-router.get("/home/restockProduct/:productId", Controller.editProduct);
-router.post("/home/restockProduct/:productId", Controller.updateProduct);
+router.get("/home/product/addProduct", Controller.addProduct);
+router.post("/home/product/addProduct", Controller.saveProduct);
 
-router.get("/home/deleteProduct/:productId", Controller.deleteProduct);
+router.get("/home/product/restockProduct/:productId", Controller.editProduct);
+router.post("/home/product/restockProduct/:productId", Controller.updateProduct);
 
-router.get("/home/buyProduct/:productId", Controller.buyProduct);
+router.get("/home/product/deleteProduct/:productId", Controller.deleteProduct);
 
-router.get("/home/showProduct/:productId", Controller.showBuyProduct);
+router.get("/home/product/buyProduct/:productId", Controller.buyProduct);
+
+router.get("/home/product/showProduct/:productId", Controller.showBuyProduct);
 
 module.exports = router;
