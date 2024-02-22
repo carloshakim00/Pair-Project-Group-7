@@ -5,8 +5,18 @@ class Controller{
 
     static async showSeller(req,res){
        try {
-        const products = await Product.findAll();
-        res.render('sellerView', { products});
+        let { search } = req.query
+        let option = {
+        };
+        if (search){
+            option.where = {
+                name:{
+                    [Op.iLike]: `%${search}%`,
+                },
+            };
+        }
+        const products = await Product.findAll(option);
+        res.render('sellerView', { products });
        } catch (error) {
         console.log(error);
         res.send(error);
@@ -15,7 +25,17 @@ class Controller{
 
     static async showBuyer(req,res){
         try {
-         const products = await Product.findAll();
+            let { search } = req.query
+            let option = {
+            };
+            if (search){
+                option.where = {
+                    name:{
+                        [Op.iLike]: `%${search}%`,
+                    },
+                };
+            }
+         const products = await Product.findAll(option);
          res.render('buyerView', { products });
         } catch (error) {
          console.log(error);
