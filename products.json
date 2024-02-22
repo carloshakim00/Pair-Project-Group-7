@@ -2,25 +2,35 @@
     "name": "Bodrex",
     "price": 15000,
     "description": "Untuk Sakit Kepala",
-    "imageUrl": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/11/10/b55b7b44-c761-4910-8c5c-6dd461e4f2a0.jpg"
+    "imageUrl": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/11/10/b55b7b44-c761-4910-8c5c-6dd461e4f2a0.jpg",
+    "stock": 100,
+    "productCode": "B-1"
   }, {
     "name": "Paracetamol",
     "price": 20000,
     "description": "Untuk Demam",
-    "imageUrl": "https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/2/11/5099ea04-b2ca-40f6-b912-d4600becb563.jpg"
+    "imageUrl": "https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/2/11/5099ea04-b2ca-40f6-b912-d4600becb563.jpg",
+    "stock": 200,
+    "productCode": "P-1"
   }, {
     "name": "Rhinos-SR",
     "price": 100000,
     "description": "Untuk Flu",
-    "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2024/2/13/27da31d7-7dd0-42a5-8b11-70e47f26e7b0.jpg"
+    "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2024/2/13/27da31d7-7dd0-42a5-8b11-70e47f26e7b0.jpg",
+    "stock": 100,
+    "productCode": "R-1"
   }, {
     "name": "Loperamide",
     "price": 30000,
     "description": "Untuk Diare",
-    "imageUrl": "https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/2/6/684042b4-2498-4e88-b9ce-6a9166cde177.jpg"
+    "imageUrl": "https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/2/6/684042b4-2498-4e88-b9ce-6a9166cde177.jpg",
+    "stock": 50,
+    "productCode": "L-1"
   }, {
     "name": "OBH",
     "price": 25000,
     "description": "Untuk Batuk",
-    "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2023/9/6/0533bd0a-92a7-4d7f-b144-f9c32857fecd.jpg"
+    "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2023/9/6/0533bd0a-92a7-4d7f-b144-f9c32857fecd.jpg",
+    "stock": 50,
+    "productCode": "O-1"
   }]
