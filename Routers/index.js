@@ -22,7 +22,11 @@ router.post("/sellerHomePage/sellerProfile", Controller.sellerProfileSave);
 router.get("/buyerHomePage/buyerProfile", Controller.buyerProfile);
 router.post("/buyerHomePage/buyerProfile", Controller.buyerProfileSave);
 
-router.get("/buyerHomePage/:id", Controller.buyMedicine);
+// router.get("/buyerHomePage/:id", Controller.buyMedicine);
+
+router.get("/buyerHomePage/buyProduct/:id", Controller.buyMedicine);
+
+router.get("/buyerHomePage/checkout/:id", Controller.checkoutProduct);
 
 // router.get("/buyerHomePage/cart", Controller.productDetail);
 
