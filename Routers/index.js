@@ -7,13 +7,27 @@ router.get("/", (req, res) => {
     res.redirect("/home");
 })
 
-router.get("/home", LoginController.login);
-router.post("/home", LoginController.addUser);
+router.get("/signUp", LoginController.signUp);
+router.post("/signUp", LoginController.addUser);
+
+
+router.get("/home", LoginController.login)
+router.post("/home", LoginController.loginUser)
+
+router.use((req,res,next) => {
+    if(!req.session.userId){
+        const error = `Please Login First!`;
+        res.redirect(`/home?error=${error}`)
+    }else{
+        next()
+    }
+})
+
 
 router.get("/logout", Controller.getLogout);
 
-router.get("/buyerHomePage", Controller.showBuyer);
 
+router.get("/buyerHomePage", Controller.showBuyer);
 router.get("/sellerHomePage", Controller.showSeller);
 
 router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);

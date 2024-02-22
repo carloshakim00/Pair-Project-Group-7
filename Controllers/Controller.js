@@ -1,6 +1,7 @@
 const {Product, User, UserProfile} = require("../models")
 const { Op } = require("sequelize");
 const formatter = require ("../helpers/formatPrice")
+const bcrypt = require("bcryptjs");
 class Controller{
 
     static async showSeller(req,res){
