@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
           async isUniqueEmail(value) {
             const email = await User.findOne({ where: { email: value } });
             if (email) {
-              throw new Error("Email sudah digunakan!");
+              throw new Error("Email is already is registered");
             }
           },
         },
