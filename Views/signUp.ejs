@@ -6,19 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <% if (error) { %>
-     <% const errorSplit = error.split(",") %>
-     <p style="color:red">
-        <%= errorSplit.find((el) => el.includes("email")) %>
-     </p>
-    <% } %> <br>
-    <h1>Welcome to Ur Fine</h1><br>
-    <em>Please complete the sign up below</em><br>
-    <div class="container"><br><br>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1>Sign up</h1>
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <p>Create your account</p>
+    </div><br>
+    <div class="container" style="display: flex;justify-content: center;align-items: center;"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
         <input type="email" name="email" placeholder="Insert email"><br>
-
+        <% if (error) { %>
+            <% const errorSplit = error.split(",") %>
+            <p style="color:red">
+               <%= errorSplit.find((el) => el.includes("Email")) %>
+            </p>
+           <% } %> <br>
         <label for="password">Password</label><br>
         <input type="password" name="password" value="" placeholder="Insert password"><br>
         <% if (error) { %>
@@ -43,7 +46,8 @@
             </p>
            <% } %> <br>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign Up</button><br><br>
+        <p>Already have an account? <a href="/home"><b>Login</b></a></p>
         </form>
         <form action=""></form>
     </div>

@@ -6,26 +6,29 @@
     <title>Login</title>
   </head>
   <body>
-    <h1>Selamat Datang, Silahkan Login.</h1>
+    <%- include('_bootstrap') %>
+    <div style="display: flex;justify-content: center;align-items: center;">
+      <h1>Welcome to Ur Fine</h1>
+    </div>
 
-    
-
-    <form action="" method="post">
-      <label>Email</label><br />
-      <input type="text" name="email" /><br />
-      <% if (error) { %>
-        <% const errorSplit = error.split(",") %>
-        <p style="color:red">
-           <%= errorSplit.find((el) => el.includes("email")) %>
-        </p>
-       <% } %>
-
-      <label>Password</label><br />
-      <input type="password" name="password" /><br />
-
-      <input type="submit" value="Submit" />
-
-      <p>Belum punya akun? Silahkan <a href="/signUp">Buat Akun.</a></p>
-    </form>
+    <div style="display: flex;justify-content: center;align-items: center;">
+      <form action="" method="post">
+        <label>Email</label><br />
+        <input type="text" name="email" /><br />
+        <% if (error) { %>
+          <% const errorSplit = error.split(",") %>
+          <p style="color:red">
+             <%= errorSplit.find((el) => el.includes("email")) %>
+          </p>
+         <% } %>
+  
+        <label>Password</label><br />
+        <input type="password" name="password" /><br><br>
+  
+        <input type="submit" value="Login" />
+  
+        <p>Don't have an account? <a href="/signUp"><b>Sign Up</b>.</a></p>
+      </form>
+    </div>
   </body>
 </html>
