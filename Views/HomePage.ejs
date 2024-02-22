@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+</head>
+<body>
+    <div class="container">
+        <% if (role === 'buyer') { %>
+            <h1>Welcome, Buyer!</h1>
+        <% } else if (role === 'seller') { %>
+            <h1>Ur Fine Seller</h1>
+            <a href="/home/addProduct" type="button" class="btn btn-primary">Add Product</a>
+        <% } %>
+
+        <div class="row">
+            <% products.forEach(product => { %>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="<%= product.imageUrl %>" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.name %></h5>
+                        <p class="card-text">Price: <%= product.price %></p>
+                        <p class="card-text">Description: <%= product.description %></p>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <%- include('_bootstrap') %>
+</body>
+</html>
