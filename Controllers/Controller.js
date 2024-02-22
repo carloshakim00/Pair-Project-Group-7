@@ -60,8 +60,9 @@ class Controller{
 
      static async showAddForm(req,res){
         try {
+         const {error} = req.query;
             let data = await Product.findAll();
-            res.render("addForm", {data})
+            res.render("addForm", {data, error})
         } catch (error) {
             console.log(error);
             res.send(error);
@@ -75,7 +76,12 @@ class Controller{
         res.redirect("/sellerHomePage")
         } catch (error) {
             console.log(error);
-            res.send(error);
+            if(error.name === "SequelizeValidationError") {
+               const message = error.errors.map((el) => el.message);
+               res.redirect(`/home/addProduct?error=${message}`)
+            } else {
+               res.send(error);
+            }
         }
      }
 
