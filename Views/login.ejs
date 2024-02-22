@@ -8,17 +8,24 @@
 <body>
     <h1>Welcome to Ur Fine</h1><br>
     <em>Please complete the sign up below</em><br>
-    <% if (error) { %>
-        <div>
-          <p style="color: red"><%= error %></p>
-        </div>
-        <% } %>
     <div class="container"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
-        <input type="text" name="email" placeholder="Insert email"><br><br>
+        <input type="text" name="email" placeholder="Insert email"><br>
+        <% if (error) { %>
+         <% const errorSplit = error.split(",") %>
+         <p style="color:red">
+            <%= errorSplit.find((el) => el.includes("Email")) %>
+         </p>
+        <% } %> <br>
         <label for="password">Password</label><br>
-        <input type="password" name="password" value="" placeholder="Insert password"><br><br>
+        <input type="password" name="password" value="" placeholder="Insert password"><br>
+        <% if (error) { %>
+            <% const errorSplit = error.split(",") %>
+            <p style="color:red">
+               <%= errorSplit.find((el) => el.includes("Password")) %>
+            </p>
+           <% } %> <br>
         <label for="role">Role</label><br>
         <select name="role">
             <option value="">Choose...</option>
@@ -26,7 +33,13 @@
             <% array.forEach(element => { %>
                 <option value="<%= element %>"><%= element %></option>
             <% }) %>
-        </select><br><br>
+        </select><br>
+        <% if (error) { %>
+            <% const errorSplit = error.split(",") %>
+            <p style="color:red">
+               <%= errorSplit.find((el) => el.includes("Role")) %>
+            </p>
+           <% } %> <br>
         <button type="submit">Sign Up</button>
         </form>
     </div>

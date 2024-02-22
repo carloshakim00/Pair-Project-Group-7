@@ -20,7 +20,7 @@ router.get("/sellerHomePage", Controller.showSeller);
 // router.get("/home/product/restockProduct/:productId", Controller.editProduct);
 // router.post("/home/product/restockProduct/:productId", Controller.updateProduct);
 
-// router.get("/home/product/deleteProduct/:productId", Controller.deleteProduct);
+router.get("/sellerHomePage/delete/:productId", LoginController.deleteProduct);
 
 // router.get("/home/product/buyProduct/:productId", Controller.buyProduct);
 

@@ -17,9 +17,9 @@ class LoginController {
             const {email, password, role} = req.body
             await User.create({email, password, role});
             if (role === `Seller`) {
-                res.redirect("sellerHomePage")
+                res.redirect("/sellerHomePage")
             } else if (role === `Buyer`) {
-                res.redirect("buyerHomePage")
+                res.redirect("/buyerHomePage")
             }
         } catch (error) {
             console.log(error);
@@ -31,6 +31,18 @@ class LoginController {
               } else {
                 res.send(error.message);
               }
+        }
+    }
+
+    static async deleteProduct(req, res) {
+        try {
+            const {productId} = req.params;
+            let deleteProduct = await Product.findByPk(+productId)
+            await Product.destroy({where: {id: productId}});
+            res.redirect(`/sellerHomePage?deleteProduct=${deleteProduct.name}`)
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
         }
     }
 }

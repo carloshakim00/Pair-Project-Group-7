@@ -5,8 +5,9 @@ class Controller{
 
     static async showSeller(req,res){
        try {
+        let {deleteProduct} = req.query;
         const products = await Product.findAll();
-        res.render('sellerView', { products});
+        res.render('sellerView', { products, deleteProduct });
        } catch (error) {
         console.log(error);
         res.send(error);

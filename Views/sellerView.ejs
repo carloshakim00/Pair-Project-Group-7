@@ -10,8 +10,11 @@
 <body>
     <%- include('_navbar') %>
     <div class="container">
-                <h1>You're a Fine Seller</h1>
-                <a href="/home/addProduct" type="button" class="btn btn-primary">Add Product</a>
+                <h1>You're a Fine Seller</h1><br>
+                <a href="/home/addProduct" type="button" class="btn btn-primary">Add Product</a><br><br>
+                <% if (deleteProduct) { %>
+                 <p style="color:red">Product <%= deleteProduct %> has been removed</p>
+                <% } %>
         <div class="row">
             <% products.forEach(product => { %>
             <div class="col-md-3 mb-4">
@@ -21,6 +24,7 @@
                         <h5 class="card-title"><%= product.name %></h5>
                         <p class="card-text">Price: <%= product.price %></p>
                         <p class="card-text">Description: <%= product.description %></p>
+                        <a href="/sellerHomePage/delete/<%= product.id %>"><button type="button" class="btn btn-danger">Delete</button></a>
                     </div>
                 </div>
             </div>
