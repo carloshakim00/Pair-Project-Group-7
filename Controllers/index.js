@@ -1,5 +1,6 @@
 const { User, UserProfile, Product, Transaction } = require("../models");
 const bcrypt = require("bcryptjs");
+
 class LoginController {
     static async signUp(req, res) {
         const { error } = req.query;
@@ -23,14 +24,12 @@ class LoginController {
                 let errormsg = error.errors.map((el) => {
                     return el.message;
                 });
-                res.redirect(`/home?error=${errormsg}`);
+                res.redirect(`/signUp?error=${errormsg}`);
             } else {
                 res.send(error.message);
             }
         }
     }
-
-
 
     static async login(req,res){
         try {
