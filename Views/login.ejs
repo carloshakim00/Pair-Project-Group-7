@@ -8,12 +8,19 @@
 <body>
     <h1>Welcome to Ur Fine</h1><br>
     <em>Please complete the sign up below</em><br>
+    <% if (error) { %>
+        <div>
+          <p style="color: red"><%= error %></p>
+        </div>
+        <% } %>
     <div class="container"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
         <input type="text" name="email" placeholder="Insert email"><br><br>
+
         <label for="password">Password</label><br>
         <input type="password" name="password" value="" placeholder="Insert password"><br><br>
+
         <label for="role">Role</label><br>
         <select name="role">
             <option value="">Choose...</option>
@@ -22,6 +29,7 @@
                 <option value="<%= element %>"><%= element %></option>
             <% }) %>
         </select><br><br>
+        
         <button type="submit">Sign Up</button>
         </form>
     </div>
