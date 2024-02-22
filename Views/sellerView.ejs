@@ -16,7 +16,7 @@
                 <% if (deleteProduct) { %>
                  <p style="color:red">Product <%= deleteProduct %> has been removed</p>
                 <% } %>
-                
+
                 <form class="d-flex justify-content-center">
                     <div class="col-md-3">
                         <input
@@ -42,6 +42,7 @@
                         <p class="card-text">Price: <%= formatter(product.price) %></p>
                         <p class="card-text">Description: <%= product.description %></p>
                         <p class="card-text">Stock: <%= product.stock %></p>
+                        <a href="/sellerHomePage/edit/<%= product.id %>"><button type="button" class="btn btn-warning">Edit</button></a>
                         <a href="/sellerHomePage/delete/<%= product.id %>"><button type="button" class="btn btn-danger">Delete</button></a>
                     </div>
                 </div>

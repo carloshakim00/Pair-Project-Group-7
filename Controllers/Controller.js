@@ -72,7 +72,6 @@ class Controller{
 
      static async postAddForm(req,res){
         try {
-         console.log(req.body)
         let {name, price,description,imageUrl,stock,productCode} = req.body
         await Product.create({name, price,description,imageUrl,stock,productCode})
         res.redirect("/sellerHomePage")
@@ -87,6 +86,33 @@ class Controller{
         }
      }
 
+     static async showEditForm(req,res){
+        const {error} = req.query;
+         const {id} = req.params;
+        try {
+            const data = await Product.findByPk(id)
+            res.render("editForm", {data, error})
+        } catch (error) {
+            res.send(error);
+        }
+     }
+
+     static async postEditForm(req,res){
+        const {id} = req.params;
+        try {
+            const {stock} = req.body;
+            await Product.update({stock}, {where: {id: id}})
+            res.redirect("/sellerHomePage")
+        } catch (error) {
+            if(error.name === "SequelizeValidationError") {
+                const message = error.errors.map((el) => el.message);
+                res.redirect(`/sellerHomePage/edit/${id}?error=${message}`)
+            } else {
+                res.send(error);
+            }
+        }
+    }
+    
      static async buyMedicine(req,res){
         try {
             let {id} = req.params;

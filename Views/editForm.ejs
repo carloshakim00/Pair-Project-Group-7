@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h2>Edit Product</h2>
+        </div>
+        <form method="POST" action="/sellerHomePage/edit/<%= data.id %>">
+            <div>
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock" value="<%= data.stock %>">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                        <%= errorSplit.find((el) => el.includes("Stock")) %>
+                    </p>
+                <% } %>
+            </div>
+            <a href="/sellerHomePage" class="btn btn-warning">Back</a>
+            <button type="submit" style="font-weight:bold">Edit Product</button>
+        </form>
+        
+    </div>
+    
+</body>
+
+</html>
