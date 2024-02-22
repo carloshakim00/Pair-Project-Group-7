@@ -27,16 +27,13 @@ class Controller{
         try {
             let { search } = req.query
             let option = {
-               where: {
-                  stock: {
-                     [Op.gt]: 0
-                  }
-               },
                 order:[["price", "DESC"]]
             };
             if (search){
-                option.where.name = {
-                    [Op.iLike]: `%${search}%`, 
+                option.where = {
+                    name:{
+                        [Op.iLike]: `%${search}%`,
+                    },
                 };
             }
          const products = await Product.findAll(option);
@@ -101,7 +98,7 @@ class Controller{
      }
 
      static async postEditForm(req,res){
-        const {id} = req.params;
+         const{id} = req.params;
         try {
             const {stock} = req.body;
             await Product.update({stock}, {where: {id: id}})
@@ -109,13 +106,12 @@ class Controller{
         } catch (error) {
             if(error.name === "SequelizeValidationError") {
                 const message = error.errors.map((el) => el.message);
-                res.redirect(`/sellerHomePage/edit/${id}?error=${message}`)
-            } else {
+                res.redirect(`/home/editProduct?error=${message}`)
+             } else {
                 res.send(error);
-            }
+             }
         }
-    }
-    
+     }
      static async buyMedicine(req,res){
         try {
             let {id} = req.params;
