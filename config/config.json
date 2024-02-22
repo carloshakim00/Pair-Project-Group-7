@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "carloshakim",
+    "password": "postgres",
     "database": "UrfineDb",
     "host": "localhost",
     "dialect": "postgres"
