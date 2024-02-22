@@ -16,12 +16,14 @@ router.post("/home", LoginController.addUser);
 router.get("/logout", Controller.getLogout);
 
 router.get("/buyerHomePage", Controller.showBuyer);
+router.get("/buyerHomePage/:id", Controller.buyMedicine);
+
+
 router.get("/sellerHomePage", Controller.showSeller);
 
 
 router.get("/home/addProduct", Controller.showAddForm);
 router.post("/home/addProduct", Controller.postAddForm);
-
 // router.get("/home/product/restockProduct/:productId", Controller.editProduct);
 // router.post("/home/product/restockProduct/:productId", Controller.updateProduct);
 
