@@ -10,7 +10,9 @@ router.get("/", (req, res) => {
 router.get("/home", LoginController.login);
 router.post("/home", LoginController.addUser);
 
-router.get("/homePage", Controller.showProduct);
+router.get("/buyerHomePage", Controller.showBuyer);
+router.get("/sellerHomePage", Controller.showSeller);
+
 
 // router.get("/home/product/addProduct", Controller.addProduct);
 // router.post("/home/product/addProduct", Controller.saveProduct);

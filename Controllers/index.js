@@ -14,8 +14,12 @@ class LoginController {
     static async addUser(req, res) {
         try {
             const {email, password, role} = req.body
-            await User.create({email, password, role});
-            res.redirect("HomePage")
+            if (role === `Seller`) {
+                res.redirect("sellerHomePage")
+            } else if (req.body.role === `Buyer`) {
+                res.redirect("buyerHomePage")
+            }
+            
         } catch (error) {
             console.log(error);
             res.send(error.message);
