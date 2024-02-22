@@ -28,6 +28,9 @@ router.get("/sellerHomePage", Controller.showSeller);
 
 router.get("/home/addProduct", Controller.showAddForm);
 router.post("/home/addProduct", Controller.postAddForm);
+router.get("/sellerHomePage/edit/:id", Controller.showEditForm);
+router.post("/sellerHomePage/edit/:id", Controller.postEditForm);
+
 // router.get("/home/product/restockProduct/:productId", Controller.editProduct);
 // router.post("/home/product/restockProduct/:productId", Controller.updateProduct);
 
