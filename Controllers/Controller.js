@@ -1,4 +1,4 @@
-const {Product, User} = require("../models")
+const {Product, User, UserProfile} = require("../models")
 const { Op } = require("sequelize");
 const formatter = require ("../helpers/formatPrice")
 class Controller{
@@ -125,6 +125,62 @@ class Controller{
             res.send(error);
         }
      }
+
+     static async sellerProfile(req,res){
+      try {
+          const {error} = req.query;
+          let data = await User.findAll();
+          res.render("sellerprofileform", {data, error})
+      } catch (error) {
+          console.log(error);
+          res.send(error);
+      }
+   }
+
+   static async sellerProfileSave(req,res){
+      try {
+      let {name, address, phone, email} = req.body
+      const user = await User.findOne({where: {email}})
+      await UserProfile.create({name, address, phone, UserId: user.id})
+      res.redirect("/sellerHomePage")
+      } catch (error) {
+          console.log(error);
+          if(error.name === "SequelizeValidationError") {
+             const message = error.errors.map((el) => el.message);
+             res.redirect(`/sellerHomePage/sellerProfile?error=${message}`)
+          } else {
+             res.send(error);
+          }
+      }
+   }
+
+   static async buyerProfile(req,res){
+      try {
+          const {error} = req.query;
+          let data = await User.findAll();
+          res.render("buyerprofileform", {data, error})
+      } catch (error) {
+          console.log(error);
+          res.send(error);
+      }
+   }
+
+   static async buyerProfileSave(req,res){
+      try {
+      let {name, address, phone, email} = req.body
+      const user = await User.findOne({where: {email}})
+      await UserProfile.create({name, address, phone, UserId: user.id})
+      res.redirect("/buyerHomePage")
+      } catch (error) {
+          console.log(error);
+          if(error.name === "SequelizeValidationError") {
+             const message = error.errors.map((el) => el.message);
+             res.redirect(`/buyerHomePage/buyerProfile?error=${message}`)
+          } else {
+             res.send(error);
+          }
+      }
+   }
 }
 
 module.exports = Controller
