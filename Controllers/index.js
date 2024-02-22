@@ -49,7 +49,6 @@ class LoginController {
             if (user) {
                 const isValidPassword = bcrypt.compareSync(password, user.password);
                 if (isValidPassword) {
-                    console.log(req.session);
                     req.session.userId = user.id;
                     if (user.role === `Seller`) {
                         res.redirect("/sellerHomePage")

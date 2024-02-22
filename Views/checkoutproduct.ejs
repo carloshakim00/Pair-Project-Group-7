@@ -19,7 +19,9 @@
         <div>
             <p>Price: <%= formatter(data.price) %></p>
         </div>
-        <a href="/buyerHomePage"><button type="button" class="btn btn-primary">Back</button></a>  <a href="/buyerHomePage/checkout/<%= data.id %>"><button type="button" class="btn btn-primary">Checkout</button></a>
+        <a href="/buyerHomePage"><button type="button" class="btn btn-primary">Back</button></a>  
+        <a href="/buyerHomePage/checkout/<%= data.id %>" target="_blank"><button type="button" class="btn btn-primary">Checkout</button></a>
+                                
 </body>
 
 </html>
