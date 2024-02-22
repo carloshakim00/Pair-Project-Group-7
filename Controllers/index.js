@@ -11,8 +11,7 @@ class LoginController {
         }
     }
 
-    static async adduser(req, res) {
-        console.log(req.body)
+    static async addUser(req, res) {
         try {
             const {email, password, role} = req.body
             await User.create({email, password, role});
