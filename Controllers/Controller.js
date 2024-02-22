@@ -112,15 +112,32 @@ class Controller{
              }
         }
      }
+
      static async buyMedicine(req,res){
         try {
             let {id} = req.params;
+            const data = await Product.findByPk(id)
             await Product.increment({stock: -1}, {where:{id}})
-            res.redirect("/buyerHomePage")
+            res.render("checkoutproduct", {data, formatter})
         } catch (error) {
             res.send(error);
         }
      }
+
+     static async checkoutProduct(req,res){
+      try {
+          let {id} = req.params;
+          const data = await Product.findByPk(id)
+          await Product.increment({stock: -1}, {where:{id}})
+          req.session.cart = req.session.cart || [];
+        req.session.cart.push(data);
+
+        res.render("checkoutproduct", { data: product, formatter });
+          res.render("checkoutproduct", {data, formatter})
+      } catch (error) {
+          res.send(error);
+      }
+   }
 
      static async sellerProfile(req,res){
       try {
