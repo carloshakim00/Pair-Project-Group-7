@@ -17,24 +17,71 @@
             <div>
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name">
+                <% if (error) { %>
+                 <% const errorSplit = error.split(",") %>
+                 <p style="color:red">
+                    <%= errorSplit.find((el) => el.includes("Product Name")) %>
+                 </p>
+                <% } %>
             </div>
 
             <div>
                 <label for="price">Price:</label>
                 <input type="number" id="price" name="price">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Price")) %>
+                    </p>
+                   <% } %>
             </div>
 
             <div>
                 <label for="description">Description:</label>
                 <textarea id="description" name="description"></textarea>
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Description")) %>
+                    </p>
+                   <% } %>
             </div>
 
             <div>
                 <label for="imageUrl">Image URL:</label>
                 <input type="text" id="imageUrl" name="imageUrl">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Image URL")) %>
+                    </p>
+                   <% } %>
             </div>
+
+            <div>
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Stock")) %>
+                    </p>
+                   <% } %>
+            </div>
+
+            <div>
+                <label for="productCode">Product Code:</label>
+                <input type="text" id="productCode" name="productCode">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Product Code")) %>
+                    </p>
+                   <% } %>
+            </div><br>
+
             <a href="/sellerHomePage" class="btn btn-warning">Back</a>
-            <button type="submit">Add Product</button>
+            <button type="submit" style="font-weight:bold">Add Product</button>
         </form>
     </div>
     
