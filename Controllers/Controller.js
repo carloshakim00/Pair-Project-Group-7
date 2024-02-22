@@ -1,6 +1,6 @@
 const {Product, User} = require("../models")
 const { Op } = require("sequelize");
-
+const formatter = require ("../helpers/formatPrice")
 class Controller{
 
     static async showSeller(req,res){
@@ -16,7 +16,7 @@ class Controller{
             };
         }
         const products = await Product.findAll(option);
-        res.render('sellerView', { products , deleteProduct });
+        res.render('sellerView', { products , deleteProduct , formatter });
        } catch (error) {
         console.log(error);
         res.send(error);
@@ -36,7 +36,7 @@ class Controller{
                 };
             }
          const products = await Product.findAll(option);
-         res.render('buyerView', { products });
+         res.render('buyerView', { products , formatter});
         } catch (error) {
          console.log(error);
          res.send(error);
@@ -79,6 +79,7 @@ class Controller{
         }
      }
 
+     static async 
 }
 
 module.exports = Controller
