@@ -5,10 +5,18 @@ class Controller{
 
     static async showSeller(req,res){
        try {
-        let {deleteProduct} = req.query;
-        res.render('sellerView', { products, deleteProduct });
-        const products = await Product.findAll();
-        res.render('sellerView', { products});
+        let { search , deleteProduct } = req.query
+        let option = {
+        };
+        if (search){
+            option.where = {
+                name:{
+                    [Op.iLike]: `%${search}%`,
+                },
+            };
+        }
+        const products = await Product.findAll(option);
+        res.render('sellerView', { products , deleteProduct });
        } catch (error) {
         console.log(error);
         res.send(error);
