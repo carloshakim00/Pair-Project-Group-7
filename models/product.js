@@ -76,19 +76,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Stock is required"
         }
       }
-    },
-    productCode: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Product Code is required"
-        },
-        notEmpty: {
-          msg: "Product Code is required"
-        }
-      }
-    },
+    }
   }, {
     sequelize,
     modelName: 'Product',
