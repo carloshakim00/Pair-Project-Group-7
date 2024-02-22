@@ -11,7 +11,12 @@
     <div class="container"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
-        <input type="text" name="email" placeholder="Insert email"><br><br>
+        <input type="email" name="email" placeholder="Insert email"><br><br>
+        <% if (error) { %>
+            <p style="color:red">
+                <% const errorSplit = error.split(",").find((el) => el.includes("email")) %>
+            </p>
+        <% } %>
         <label for="password">Password</label><br>
         <input type="password" name="password" value="" placeholder="Insert password"><br><br>
         <label for="role">Role</label><br>
