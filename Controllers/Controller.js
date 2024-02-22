@@ -1,4 +1,4 @@
-const {Product} = require("../models")
+const {Product, User} = require("../models")
 const { Op } = require("sequelize");
 
 class Controller{
@@ -6,8 +6,9 @@ class Controller{
     static async showProduct(req,res){
        try {
         const products = await Product.findAll();
-        const role = req.user.role
-        res.render('HomePage', { products, role });
+        const users = await User.findAll();
+        console.log(users);
+        res.render('HomePage', { products, users });
        } catch (error) {
         console.log(error);
         res.send(error);
