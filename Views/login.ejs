@@ -1,48 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to Ur Fine</h1><br>
-    <em>Please complete the sign up below</em><br>
-    <div class="container"><br><br>
-        <form method="post">
-        <label for="email">Email</label><br>
-        <input type="email" name="email" placeholder="Insert email"><br>
-        <% if (error) { %>
-         <% const errorSplit = error.split(",") %>
-         <p style="color:red">
-            <%= errorSplit.find((el) => el.includes("Email")) %>
-         </p>
-        <% } %> <br>
-        <label for="password">Password</label><br>
-        <input type="password" name="password" value="" placeholder="Insert password"><br>
-        <% if (error) { %>
-            <% const errorSplit = error.split(",") %>
-            <p style="color:red">
-               <%= errorSplit.find((el) => el.includes("Password")) %>
-            </p>
-           <% } %> <br>
-        <label for="role">Role</label><br>
-        <select name="role">
-            <option value="">Choose...</option>
-            <% const array = ["Seller", "Buyer"] %>
-            <% array.forEach(element => { %>
-                <option value="<%= element %>"><%= element %></option>
-            <% }) %>
-        </select><br>
-        <% if (error) { %>
-            <% const errorSplit = error.split(",") %>
-            <p style="color:red">
-               <%= errorSplit.find((el) => el.includes("Role")) %>
-            </p>
-           <% } %> <br>
-        <button type="submit">Sign Up</button>
-        </form>
-    </div>
-    <%- include('_bootstrap') %>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Selamat Datang, Silahkan Login.</h1>
+
+    
+
+    <form action="" method="post">
+      <label>Email</label><br />
+      <input type="text" name="email" /><br />
+      <% if (error) { %>
+        <% const errorSplit = error.split(",") %>
+        <p style="color:red">
+           <%= errorSplit.find((el) => el.includes("email")) %>
+        </p>
+       <% } %>
+
+      <label>Password</label><br />
+      <input type="password" name="password" /><br />
+
+      <input type="submit" value="Submit" />
+
+      <p>Belum punya akun? Silahkan <a href="/signUp">Buat Akun.</a></p>
+    </form>
+  </body>
 </html>
