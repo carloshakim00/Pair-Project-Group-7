@@ -15,7 +15,7 @@ class LoginController {
         try {
             const {email, password, role} = req.body
             await User.create({email, password, role});
-            res.render("HomePage")
+            res.redirect("HomePage")
         } catch (error) {
             console.log(error);
             res.send(error.message);

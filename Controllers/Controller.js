@@ -7,7 +7,6 @@ class Controller{
        try {
         const products = await Product.findAll();
         const users = await User.findAll();
-        console.log(users);
         res.render('HomePage', { products, users });
        } catch (error) {
         console.log(error);
