@@ -16,20 +16,9 @@
     <div class="container"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
-<<<<<<< HEAD
-        <input type="email" name="email" placeholder="Insert email"><br><br>
-        <% if (error) { %>
-            <p style="color:red">
-                <% const errorSplit = error.split(",").find((el) => el.includes("email")) %>
-            </p>
-        <% } %>
-=======
         <input type="text" name="email" placeholder="Insert email"><br><br>
-
->>>>>>> 4738e42432b1d9c105a3e1b1b7b77828eef918b8
         <label for="password">Password</label><br>
         <input type="password" name="password" value="" placeholder="Insert password"><br><br>
-
         <label for="role">Role</label><br>
         <select name="role">
             <option value="">Choose...</option>
@@ -38,7 +27,6 @@
                 <option value="<%= element %>"><%= element %></option>
             <% }) %>
         </select><br><br>
-        
         <button type="submit">Sign Up</button>
         </form>
     </div>
