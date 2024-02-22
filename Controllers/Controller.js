@@ -61,7 +61,7 @@ class Controller{
 
      static async showAddForm(req,res){
         try {
-         const {error} = req.query;
+            const {error} = req.query;
             let data = await Product.findAll();
             res.render("addForm", {data, error})
         } catch (error) {
@@ -72,8 +72,9 @@ class Controller{
 
      static async postAddForm(req,res){
         try {
-        let {name, price,description,imageUrl} = req.body
-        await Product.create({name, price,description,imageUrl})
+         console.log(req.body)
+        let {name, price,description,imageUrl,stock,productCode} = req.body
+        await Product.create({name, price,description,imageUrl,stock,productCode})
         res.redirect("/sellerHomePage")
         } catch (error) {
             console.log(error);
