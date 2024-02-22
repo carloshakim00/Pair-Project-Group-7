@@ -67,6 +67,17 @@
                        <%= errorSplit.find((el) => el.includes("Stock")) %>
                     </p>
                    <% } %>
+            </div>
+
+            <div>
+                <label for="productCode">Product Code:</label>
+                <input type="text" id="productCode" name="productCode">
+                <% if (error) { %>
+                    <% const errorSplit = error.split(",") %>
+                    <p style="color:red">
+                       <%= errorSplit.find((el) => el.includes("Product Code")) %>
+                    </p>
+                   <% } %>
             </div><br>
 
             <a href="/sellerHomePage" class="btn btn-warning">Back</a>
