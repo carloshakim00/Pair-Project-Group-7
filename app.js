@@ -10,13 +10,9 @@ app.use(express.static("public"))
 app.use(router)
 app.use(
   session({
-    secret: "keyboard cat", // harus ada
+    secret: "secret-key", // harus ada
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      secure: false, //https
-      sameSite: true, // untuk security dari csrf attack
-    },
   })
 );
 
