@@ -1,14 +1,12 @@
 const express = require("express");
 const Controller = require("../Controllers/Controller");
-const LoginController = require("../Controllers/index");
 const router = express.Router();
 
 router.get("/", (req, res) => {
     res.redirect("/home");
 })
 
-router.get("/home", LoginController.login);
-router.post("/home", LoginController.adduser);
+router.get("/home", Controller.login);
 
 // router.get("/home/product", Controller.showProduct);
 
