@@ -129,10 +129,6 @@ class Controller{
           let {id} = req.params;
           const data = await Product.findByPk(id)
           await Product.increment({stock: -1}, {where:{id}})
-          req.session.cart = req.session.cart || [];
-        req.session.cart.push(data);
-
-        res.render("checkoutproduct", { data: product, formatter });
           res.render("checkoutproduct", {data, formatter})
       } catch (error) {
           res.send(error);
