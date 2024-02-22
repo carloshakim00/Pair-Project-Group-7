@@ -8,11 +8,13 @@
 <body>
     <h1>Welcome to Ur Fine</h1><br>
     <em>Please complete the sign up below</em><br>
-    <% if (error) { %>
-        <div>
-          <p style="color: red"><%= error %></p>
-        </div>
-        <% } %>
+    <div class="alert" style="color: red;">
+        <% if (error) { %>
+            <% error.split(",").forEach(el=> { %>
+                <%= el %><br>
+                    <% }) %>
+                        <% } %>
+    </div>
     <div class="container"><br><br>
         <form method="post">
         <label for="email">Email</label><br>
