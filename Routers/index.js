@@ -14,13 +14,15 @@ router.get("/logout", Controller.getLogout);
 
 router.get("/buyerHomePage", Controller.showBuyer);
 
-router.get("/buyerHomePage/:id", Controller.buyMedicine);
-
 router.get("/sellerHomePage", Controller.showSeller);
 
-// router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);
+router.get("/sellerHomePage/sellerProfile", Controller.sellerProfile);
+router.post("/sellerHomePage/sellerProfile", Controller.sellerProfileSave);
 
-// router.get("/buyerHomePage/buyerProfile", Controller.buyerProfile);
+router.get("/buyerHomePage/buyerProfile", Controller.buyerProfile);
+router.post("/buyerHomePage/buyerProfile", Controller.buyerProfileSave);
+
+router.get("/buyerHomePage/:id", Controller.buyMedicine);
 
 // router.get("/buyerHomePage/cart", Controller.productDetail);
 
