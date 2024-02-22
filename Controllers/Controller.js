@@ -3,16 +3,28 @@ const { Op } = require("sequelize");
 
 class Controller{
 
-    static async showProduct(req,res){
+    static async showProductSeller(req,res){
        try {
-        const products = await Product.findAll();
-        const role = req.user.role
-        res.render('HomePage', { products, role });
+         await Product.
+         res.render("sellerView")
        } catch (error) {
-        console.log(error);
-        res.send(error);
+            console.log(error);
+            res.send(error);
        }
     }
+
+    static async showProductBuyer(req,res){
+        try {
+            await
+            res.render("buyerView")
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
+    }
+
+
+
 
 }
 
