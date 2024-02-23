@@ -1,17 +1,18 @@
 const express = require("express");
 const Controller = require("../Controllers/Controller");
+const LoginController = require("../Controllers/index");
 const router = express.Router();
 
 router.get("/", (req, res) => {
     res.redirect("/home");
 })
 
-router.get("/signUp", Controller.signUp);
-router.post("/signUp", Controller.addUser);
+router.get("/signUp", LoginController.signUp);
+router.post("/signUp", LoginController.addUser);
 
 
-router.get("/home", Controller.login)
-router.post("/home", Controller.loginUser)
+router.get("/home", LoginController.login)
+router.post("/home", LoginController.loginUser)
 
 router.use((req,res,next) => {
     if(!req.session.userId){
@@ -49,6 +50,6 @@ router.post("/home/addProduct", Controller.postAddForm);
 router.get("/sellerHomePage/edit/:id", Controller.showEditForm);
 router.post("/sellerHomePage/edit/:id", Controller.postEditForm);
 
-router.get("/sellerHomePage/delete/:productId", Controller.deleteProduct);
+router.get("/sellerHomePage/delete/:productId", LoginController.deleteProduct);
 
 module.exports = router;

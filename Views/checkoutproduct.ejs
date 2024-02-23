@@ -9,17 +9,23 @@
 </head>
 
 <body>
-        <h2>Checkout Product <%= data.name %></h2><br>
-        <div>
+    <%- include('_bootstrap') %>
+        <h2 style="display: flex;justify-content: center;align-items: center;">Checkout Product <%= data.name %></h2><br>
+        <div style="display: flex;justify-content: center;align-items: center;">
             <img src="<%= data.imageUrl %>" class="card-img-top" alt="<%= data.name %> image" style="width:250px">
         </div>
-        <div>
+        <div style="display: flex;justify-content: center;align-items: center;">
             <p>Product Name: <%= data.name %></p>
         </div>
-        <div>
+        <div style="display: flex;justify-content: center;align-items: center;">
             <p>Price: <%= formatter(data.price) %></p>
         </div>
-        <a href="/buyerHomePage"><button type="button" class="btn btn-primary">Back</button></a>  <a href="/buyerHomePage/checkout/<%= data.id %>"><button type="button" class="btn btn-primary">Checkout</button></a>
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <a href="/buyerHomePage/checkout/<%= data.id %>" target="_blank" class="btn btn-primary">Checkout</a>  
+        </div><br>
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <a href="/buyerHomePage" class="btn btn-primary">Back</a>  
+        </div>                               
 </body>
 
 </html>
